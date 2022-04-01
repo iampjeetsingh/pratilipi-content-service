@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "2b18ead9-06d1-4dd5-af53-2289e1f29d29",
+		"name": "pratilipi-content-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user/:userId/content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/user/:userId/content",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"user",
+						":userId",
+						"content"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": ""
+						}
+					]
+				},
+				"description": "This api fetches meta data of unlocked content for a particular user. We have to pass userId as path parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "/series/bulk-upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Test\",\n        \"publishers\": [\n            \"Pratilipi\"\n        ],\n        \"chapters\": [\n            {\n                \"name\": \"Chapter 1\",\n                \"content\": \"This is test content for chapter 1.\"\n            }\n        ]\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/series/bulk-upload",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"series",
+						"bulk-upload"
+					]
+				},
+				"description": "This api allows us to upload data in bulk."
+			},
+			"response": []
+		},
+		{
+			"name": "/series/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/series/all",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"series",
+						"all"
+					]
+				},
+				"description": "This help us see all the series with content and meta data."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "https://pratilipi-content-service.herokuapp.com",
+			"type": "default"
+		}
+	]
+}
